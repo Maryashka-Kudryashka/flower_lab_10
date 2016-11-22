@@ -15,9 +15,13 @@ public class FlowerMain {
 
         Flower romashka = new Romashka(true, 12, FlowerColor.BLUE, 12.5, FlowerType.ROMASHKA);
         Flower cactus = new Cactus(true, 12, FlowerColor.WHITE, 12.5, FlowerType.CACTUS);
+        Flower romashka1 = new Romashka(true, 12, FlowerColor.BLUE, 12.5, FlowerType.ROMASHKA);
+        Flower cactus1 = new Cactus(true, 12, FlowerColor.WHITE, 12.5, FlowerType.CACTUS);
 
         bucket.addFlower(cactus);
         bucket.addFlower(romashka);
+        bucket.addFlower(cactus1);
+        bucket.addFlower(romashka1);
 
         PaperDecorator paper = new PaperDecorator(bucket);
         RibbonDecorator ribbon = new RibbonDecorator(bucket);
@@ -30,7 +34,6 @@ public class FlowerMain {
         order.addItem(basket);
         order.setDeliveryStrategy(new PostDeliveryStrategy());
         order.setPaymentStrategy(new CreditCardPaymentStrategy());
-
         order.processOrder();
 
     }

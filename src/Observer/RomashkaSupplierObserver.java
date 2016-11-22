@@ -7,7 +7,6 @@ public class RomashkaSupplierObserver extends YourObserver {
     private Observable subject;
     public RomashkaSupplierObserver(Observable subject) {
         this.subject = subject;
-        subject.add_Item(this);
     }
 
     @Override

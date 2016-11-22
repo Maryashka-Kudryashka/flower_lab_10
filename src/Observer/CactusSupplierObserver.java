@@ -7,7 +7,6 @@ public class CactusSupplierObserver extends YourObserver {
     private Observable subject;
     public CactusSupplierObserver(Observable subject) {
         this.subject = subject;
-        subject.add_Item(this);
     }
 
     @Override

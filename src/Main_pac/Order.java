@@ -26,7 +26,6 @@ public class Order implements Observable {
 
     public void setPaymentStrategy(IPayment _payment){
         payment = _payment;
-        notify_all_observers();
     }
 
     public void setDeliveryStrategy(IDelivery _delivery){
@@ -43,6 +42,7 @@ public class Order implements Observable {
 
     public void processOrder(){
         payment.pay(calculateTotalPrice());
+        notify_all_observers();
         System.out.println(delivery.deliver(items));
     }
 
