@@ -1,3 +1,6 @@
+package Main_pac;
+
+import Enum.*;
 public abstract class Flower {
 
     protected Flower_Special special;
