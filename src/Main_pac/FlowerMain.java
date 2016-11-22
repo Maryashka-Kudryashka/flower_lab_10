@@ -24,14 +24,14 @@ public class FlowerMain {
         BasketDecorator basket = new BasketDecorator(bucket);
 
         Order order = new Order();
+        order.addItem(bucket);
         order.addItem(paper);
         order.addItem(ribbon);
         order.addItem(basket);
         order.setDeliveryStrategy(new PostDeliveryStrategy());
         order.setPaymentStrategy(new CreditCardPaymentStrategy());
 
-        //order.processOrder();
-        CactusSupplierObserver k = new CactusSupplierObserver(order);
-        order.notify_all_observers();
+        order.processOrder();
+
     }
 }

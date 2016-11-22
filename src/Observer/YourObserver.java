@@ -6,5 +6,5 @@ public abstract class YourObserver{
 
     protected Observable subject;
 
-    public abstract void update();
+    public abstract void update(FlowerBucket flower);
 }

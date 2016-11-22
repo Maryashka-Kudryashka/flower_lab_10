@@ -4,6 +4,8 @@ import Decorators.*;
 import Enum.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class FlowerBucket implements Item {
     private int defaultSize = 10;
@@ -100,10 +102,18 @@ public class FlowerBucket implements Item {
     }
 
     public Flower[] search_new(Flower flower){
+        int count = 0;
         Flower[] tmp = new Flower[a.length];
         for (int i = 0; i < a.length; i++){
-            if ()
+            if (a[i] == null){
+                return Arrays.copyOfRange(tmp, 0, count);
+            }
+            if (Objects.equals(a[i].getClass().toString(), flower.getClass().toString())){
+                tmp[count] = a[i];
+                count += 1;
+            }
         }
+        return Arrays.copyOfRange(tmp, 0, count);
     }
 
     public String  getDescription(){

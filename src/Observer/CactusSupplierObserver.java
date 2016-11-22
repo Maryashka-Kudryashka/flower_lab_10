@@ -1,10 +1,7 @@
 package Observer;
-import Decorators.Item;
-import Enum.*;
+
 import Flowers.Cactus;
 import Main_pac.*;
-
-import java.util.LinkedList;
 
 public class CactusSupplierObserver extends YourObserver {
     private Observable subject;
@@ -14,7 +11,8 @@ public class CactusSupplierObserver extends YourObserver {
     }
 
     @Override
-    public void update() {
-        System.out.println("Cactus123");
+    public void update(FlowerBucket bouqette) {
+        System.out.println("We need: " + bouqette.search_new(new Cactus(false, 2,null,3, null)).length+ " cactuses");
     }
+
 }

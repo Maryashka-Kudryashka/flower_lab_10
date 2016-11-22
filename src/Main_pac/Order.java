@@ -6,9 +6,11 @@ import Payment.*;
 import Observer.*;
 import java.util.ArrayList;
 import java.util.List;
+import Main_pac.*;
 
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Order implements Observable {
 
@@ -18,10 +20,13 @@ public class Order implements Observable {
     private List<YourObserver> observers = new ArrayList<YourObserver>();
 
     public Order(){
+        observers.add(new CactusSupplierObserver(this));
+        observers.add(new RomashkaSupplierObserver(this));
     }
 
     public void setPaymentStrategy(IPayment _payment){
         payment = _payment;
+        notify_all_observers();
     }
 
     public void setDeliveryStrategy(IDelivery _delivery){
@@ -61,7 +66,16 @@ public class Order implements Observable {
 
     public void notify_all_observers(){
         for (YourObserver user: observers){
-            user.update();
+            user.update(get_bucket());
         }
+    }
+
+    public FlowerBucket get_bucket(){
+        for (Object o: items){
+            if(Objects.equals(o.getClass().toString(), FlowerBucket.class.toString())){
+                return (FlowerBucket) o;
+            }
+        }
+        return null;
     }
 }
