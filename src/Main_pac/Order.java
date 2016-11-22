@@ -3,14 +3,19 @@ package Main_pac;
 import Decorators.*;
 import Delivery.*;
 import Payment.*;
+import Observer.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import java.util.LinkedList;
 
-public class Order {
+public class Order implements Observable {
 
     LinkedList<Item> items = new LinkedList<Item>();
     IPayment payment;
     IDelivery delivery;
+    private List<YourObserver> observers = new ArrayList<YourObserver>();
 
     public Order(){
     }
@@ -42,5 +47,21 @@ public class Order {
 
     public void removeItem(Item b){
         items.remove(b);
+    }
+
+    @Override
+    public void add_Item(YourObserver o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void remove_Item(YourObserver o) {
+        observers.remove(o);
+    }
+
+    public void notify_all_observers(){
+        for (YourObserver user: observers){
+            user.update();
+        }
     }
 }

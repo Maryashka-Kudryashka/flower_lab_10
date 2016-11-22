@@ -99,6 +99,13 @@ public class FlowerBucket implements Item {
         return null;
     }
 
+    public Flower[] search_new(Flower flower){
+        Flower[] tmp = new Flower[a.length];
+        for (int i = 0; i < a.length; i++){
+            if ()
+        }
+    }
+
     public String  getDescription(){
         return "This is flower bouqette ";
     }

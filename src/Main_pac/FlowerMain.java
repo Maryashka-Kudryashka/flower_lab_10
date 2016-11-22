@@ -4,6 +4,7 @@ import Enum.*;
 import Flowers.*;
 import Delivery.*;
 import Decorators.*;
+import Observer.CactusSupplierObserver;
 import Payment.*;
 
 
@@ -29,7 +30,8 @@ public class FlowerMain {
         order.setDeliveryStrategy(new PostDeliveryStrategy());
         order.setPaymentStrategy(new CreditCardPaymentStrategy());
 
-        order.processOrder();
-
+        //order.processOrder();
+        CactusSupplierObserver k = new CactusSupplierObserver(order);
+        order.notify_all_observers();
     }
 }
